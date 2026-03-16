@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="com.employee.model.Address">
+        <constructor-arg value="1"/>
+        <constructor-arg value="Bangalore"/>
+        <constructor-arg value="Karnataka"/>
+        <constructor-arg value="India"/>
+        <constructor-arg value="560001"/>
+    </bean>
+
+    <bean id="employee" class="com.employee.model.Employee">
+        <constructor-arg ref="address"/>
+        <property name="id" value="101"/>
+        <property name="name" value="Mike"/>
+        <property name="email" value="mike@gmail.com"/>
+        <property name="password" value="12345"/>
+        <property name="age" value="28"/>
+        <property name="salary" value="60000"/>
+    </bean>
+
+    <bean id="employeeService"
+          class="com.employee.service.EmployeeServiceImpl">
+        <property name="employee" ref="employee"/>
+    </bean>
+
+</beans>
